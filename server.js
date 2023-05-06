@@ -11,6 +11,9 @@ app.get('/', (req, res) => {
 
     // Send status code
     // res.sendStatus(500)
+
+    // Chain status with something
+    // res.status(500).send("Something")
 })
 
 app.listen(3000)
