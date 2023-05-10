@@ -1,29 +1,34 @@
 const express = require("express")
 const app = express()
 
-app.get('/', (req, res) => {
-    console.log('Here')
+// Set up view engine
+app.set("view engine", "ejs")
 
-    // Insert different res thingies here
+app.get("/", (req, res) => {
+  console.log("Here")
 
-    // Outputs "Hi" on browser
-    // For testing purposes
-    res.send('Hi')
+  // Insert different res thingies here
 
-    // Send status code
-    // res.sendStatus(500)
+  // Outputs "Hi" on browser
+  // Not usually used, just for testing purposes
+  //   res.send("Hi")
 
-    // Chain status with something
-    // res.status(500).send("Something")
+  // Send status code
+  // res.sendStatus(500)
 
-    // Chain status with json
-    // res.status(500).json({message: "Error"})
+  // Chain status with something
+  // res.status(500).send("Something")
 
-    // Downloads "server.js"
-    // res.download("server.js")
+  // Chain status with json
+  // res.status(500).json({message: "Error"})
 
-    // Render a file
-    // res.render('index')
+  // Downloads "server.js"
+  // res.download("server.js")
+
+  // Render a file
+  // Need to set up view engine to work
+  // You can pass text to index.ejs
+  res.render("index", { text124: "World" })
 })
 
 app.listen(3000)
