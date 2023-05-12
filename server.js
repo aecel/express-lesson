@@ -3,7 +3,14 @@ const app = express()
 
 // Set up view engine
 app.set("view engine", "ejs")
+app.use(logger)
 
+// Serves static html inside "public" folder
+// app.use(express.static, "public")
+
+// Cand do it this way
+// app.get("/", logger, (req,res))
+// So that it'll run logger first before the (req,res)=>{} function
 app.get("/", (req, res) => {
   console.log("Here")
 
@@ -33,5 +40,10 @@ app.get("/", (req, res) => {
 
 const userRouter = require("./routes/users")
 app.use("/users", userRouter)
+
+function logger(req, res, next) {
+  console.log(req.originalUrl)
+  next()
+}
 
 app.listen(3000)
