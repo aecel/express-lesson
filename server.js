@@ -31,8 +31,7 @@ app.get("/", (req, res) => {
   res.render("index", { text124: "World" })
 })
 
-app.get("/users", (req, res) => {
-  console.log("Users")
-})
+const userRouter = require("./routes/users")
+app.use("/users", userRouter)
 
 app.listen(3000)
