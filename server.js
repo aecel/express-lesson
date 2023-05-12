@@ -31,4 +31,8 @@ app.get("/", (req, res) => {
   res.render("index", { text124: "World" })
 })
 
+app.get("/users", (req, res) => {
+  console.log("Users")
+})
+
 app.listen(3000)
